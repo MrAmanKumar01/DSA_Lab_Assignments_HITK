@@ -17,13 +17,13 @@ class Underflow2 extends Exception {
     }
 }
 
-class BasicQueue<T> {
+class SimpleQueue<T> {
     T[] arr;
     int maxSize;
     int rear;
 
     // Constructor
-    BasicQueue(int n) {
+    SimpleQueue(int n) {
         arr = (T[]) new Object[n];
         this.maxSize = n;
         this.rear = -1;
@@ -42,7 +42,7 @@ class BasicQueue<T> {
     // Add (Enqueue)
     void add(T data) throws Overflow2 {
         if (isFull()) {
-            throw new Overflow2("BasicQueue is full");
+            throw new Overflow2("Queue is full");
         }
 
         rear++;
@@ -52,7 +52,7 @@ class BasicQueue<T> {
     // Remove
     T remove() throws Underflow2 {
         if (isEmpty()) {
-            throw new Underflow2("BasicQueue is empty");
+            throw new Underflow2("Queue is empty");
         }
 
         T front = arr[0];
@@ -67,25 +67,25 @@ class BasicQueue<T> {
     // Peek
     T peek() throws Underflow2 {
         if (isEmpty()) {
-            throw new Underflow2("BasicQueue is empty");
+            throw new Underflow2("Queue is empty");
         }
 
         return arr[0];
     }
 
     // Check similarity of two queues
-    boolean isSimilar(BasicQueue<T> q) throws Underflow2 {
+    boolean isSimilar(SimpleQueue<T> q) throws Underflow2 {
         HashSet<T> set1 = new HashSet<>();
         HashSet<T> set2 = new HashSet<>();
 
         while (!this.isEmpty()) {
             set1.add(this.remove());
         }
-        System.out.println("BasicQueue1: " + set1);
+        System.out.println("Queue1: " + set1);
         while (!q.isEmpty()) {
             set2.add(q.remove());
         }
-        System.out.println("BasicQueue2: " + set2);
+        System.out.println("Queue2: " + set2);
 
         return set1.equals(set2);
     }
@@ -95,52 +95,52 @@ public class Problem1_With_Generics {
     public static void main(String[] args) throws Overflow2, Underflow2 {
         Scanner sc = new Scanner(System.in);
 
-//        System.out.print("Enter the maxSize of first BasicQueue: ");
+//        System.out.print("Enter the maxSize of first Queue: ");
 //        int n1 = sc.nextInt();
-//        BasicQueue<Integer> q1 = new BasicQueue<>(n1);
-//        System.out.print("Insert elements in BasicQueue1: ");
+//        SimpleQueue<Integer> q1 = new SimpleQueue<>(n1);
+//        System.out.print("Insert elements in Queue1: ");
 //        for (int i = 0; i < n1; i++) {
 //            q1.add(sc.nextInt());
 //        }
 //
 //        System.out.println();
 //
-//        System.out.print("Enter the maxSize of second BasicQueue: ");
+//        System.out.print("Enter the maxSize of second Queue: ");
 //        int n2 = sc.nextInt();
-//        System.out.print("Insert elements in BasicQueue2: ");
-//        BasicQueue<Integer> q2 = new BasicQueue<>(n2);
+//        System.out.print("Insert elements in Queue2: ");
+//        SimpleQueue<Integer> q2 = new SimpleQueue<>(n2);
 //        for (int i = 0; i < n2; i++) {
 //            q2.add(sc.nextInt());
 //        }
 //
 //        if (q1.isSimilar(q2)) {
-//            System.out.println("BasicQueues contain similar elements (order and repetition doesn't matter)");
+//            System.out.println("Queues contain similar elements (order and repetition doesn't matter)");
 //        } else {
-//            System.out.println("BasicQueues do not contain similar elements");
+//            System.out.println("Queues do not contain similar elements");
 //        }
 
-        System.out.print("Enter the maxSize of first BasicQueue: ");
+        System.out.print("Enter the maxSize of first Queue: ");
         int n1 = sc.nextInt();
-        BasicQueue<String> q1 = new BasicQueue<>(n1);
-        System.out.print("Insert elements in BasicQueue1: ");
+        SimpleQueue<String> q1 = new SimpleQueue<>(n1);
+        System.out.print("Insert elements in Queue1: ");
         for (int i = 0; i < n1; i++) {
             q1.add(sc.next());
         }
 
         System.out.println();
 
-        System.out.print("Enter the maxSize of second BasicQueue: ");
+        System.out.print("Enter the maxSize of second Queue: ");
         int n2 = sc.nextInt();
-        System.out.print("Insert elements in BasicQueue2: ");
-        BasicQueue<String> q2 = new BasicQueue<>(n2);
+        System.out.print("Insert elements in Queue2: ");
+        SimpleQueue<String> q2 = new SimpleQueue<>(n2);
         for (int i = 0; i < n2; i++) {
             q2.add(sc.next());
         }
 
         if (q1.isSimilar(q2)) {
-            System.out.println("BasicQueues contain similar elements (order and repetition doesn't matter)");
+            System.out.println("Queues contain similar elements (order and repetition doesn't matter)");
         } else {
-            System.out.println("BasicQueues do not contain similar elements");
+            System.out.println("Queues do not contain similar elements");
         }
 
     }
@@ -157,21 +157,21 @@ Queue1: [1, 2, 3, 4]
 Queue2: [1, 2, 3, 4]
 Queues contain similar elements (order and repetition doesn't matter)
 -------------------------------------------------------------------------------
-Enter the maxSize of first BasicQueue: 3
-Insert elements in BasicQueue1: AMAN RANVIR ABHISHEK
+Enter the maxSize of first Queue: 3
+Insert elements in Queue1: AMAN RANVIR ABHISHEK
 
-Enter the maxSize of second BasicQueue: 4
-Insert elements in BasicQueue2: RANVIR ABHISHEK AMAN RANVIR
-BasicQueue1: [RANVIR, AMAN, ABHISHEK]
-BasicQueue2: [RANVIR, AMAN, ABHISHEK]
-BasicQueues contain similar elements (order and repetition doesn't matter)
+Enter the maxSize of second Queue: 4
+Insert elements in Queue2: RANVIR ABHISHEK AMAN RANVIR
+Queue1: [RANVIR, AMAN, ABHISHEK]
+Queue2: [RANVIR, AMAN, ABHISHEK]
+Queues contain similar elements (order and repetition doesn't matter)
 ------------------------------------------------------------------------------------
-Enter the maxSize of first BasicQueue: 3
-Insert elements in BasicQueue1: AMAN RANVIR ABHISHEK
+Enter the maxSize of first Queue: 3
+Insert elements in Queue1: AMAN RANVIR ABHISHEK
 
-Enter the maxSize of second BasicQueue: 4
-Insert elements in BasicQueue2: RANVIR ABHISHEK AMAN RAMAN
-BasicQueue1: [RANVIR, AMAN, ABHISHEK]
-BasicQueue2: [RANVIR, AMAN, RAMAN, ABHISHEK]
-BasicQueues do not contain similar elements
+Enter the maxSize of second Queue: 4
+Insert elements in Queue2: RANVIR ABHISHEK AMAN RAMAN
+Queue1: [RANVIR, AMAN, ABHISHEK]
+Queue2: [RANVIR, AMAN, RAMAN, ABHISHEK]
+Queues do not contain similar elements
 */
