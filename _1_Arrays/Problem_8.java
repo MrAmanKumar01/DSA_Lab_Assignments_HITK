@@ -1,6 +1,6 @@
 /*
 8. Write a class Polynomial to perform the following
-a. Design a constructer to represent a polynomial (of single variable x).
+a. Design a constructor to represent a polynomial (of single variable x).
 b. Create a method to addition of polynomials.
 c. Create a method to subtraction of polynomials.
 d. Create a method to multiply of polynomials.

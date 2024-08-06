@@ -1,3 +1,8 @@
+/*
+1. Create a Class Search within that implement two Generic method LinearSearch(),
+BinarySearch(). Test your program for different data
+ */
+
 package _1_Arrays;
 
 class Search<T extends Comparable<T>> {

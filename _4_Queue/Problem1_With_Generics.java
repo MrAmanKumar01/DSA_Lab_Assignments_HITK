@@ -1,3 +1,9 @@
+/*
+1. Write a program to implement a Queue class (use a list to store the elements of the
+Queue). [Implement Queue Overflow and Underflow by Exception]. Write a
+method to check two Queue are carrying similar elements or not. (Repetition of the
+elements are not consider)
+ */
 package _4_Queue;
 
 import java.util.HashSet;
